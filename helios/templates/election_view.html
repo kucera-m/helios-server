@@ -106,7 +106,7 @@ Načtěte tuto stránku znovu po uplynutí několika minut.
 {% else %}
 <a href="{% url "helios.views.one_election_compute_tally" election.uuid %}">vytvořit šifrováný celkový výsledek hlasování</a><br />
 Ze zašifrovaných hlasů bude vytvořen celkový výsledek, rovněž zašifrovaný. Poté budou<br />
-trustees komise požádáni, aby provedli jeho dílčí dešifrování.
+trustees požádáni, aby provedli jeho dílčí dešifrování.
 {% endif %}
 {% else %}
 
@@ -119,15 +119,15 @@ Jakmile ho zveřejníte, bude si ho moci prohlédnout kdokoli.
 {% if election.ready_for_decryption_combination %}
 <a href="{% url "helios.views.combine_decryptions" election.uuid %}">
 {% if election.num_trustees == 1 %}
-určit výsledek
+vypočítat výsledek
 {% else %}
 spojit dílčí výsledky dešifrované trustees a vypočítat výsledek
 {% endif %}
 </a><br />
 {% if election.num_trustees == 1 %}
-Určený výsledek budete vidět pouze vy jakožto zakladatel hlasování.
+Vypočtený výsledek budete vidět pouze vy jakožto zakladatel hlasování.
 {% else %}
-Dílčí výsledky dešifrované trustees budou spojeny a bude určen celkový výsledek.<br />
+Dílčí výsledky dešifrované trustees budou spojeny a bude vypočten celkový výsledek.<br />
 Poté uvidíte výsledek pouze vy jakožto zakladatel hlasování.
 {% endif %}
 {% else %}
