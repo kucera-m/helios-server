@@ -33,8 +33,8 @@ class ElectionModelTests(TestCase):
     def create_election(self):
         return models.Election.get_or_create(
             short_name='demo',
-            name=u'Demo Election',
-            description=u'Demo Election Description',
+            name='Demo Election',
+            description='Demo Election Description',
             admin=self.user)
 
     def setup_questions(self):
@@ -410,12 +410,12 @@ class ElectionBlackboxTests(WebTest):
 
         
         if hasattr(response, "testbody"):
-            assert text in response.testbody, "missing text %s" % text
+            assert text in response.testbody.decode('utf-8'), "missing text %s" % text
         else:
             if hasattr(response, "body"):
-                assert text in response.body, "missing text %s" % text        
+                assert text in response.body.decode('utf-8'), "missing text %s" % text        
             else:
-                assert text in response.content, "missing text %s" % text
+                assert text in response.content.decode('utf-8'), "missing text %s" % text
 
     def setup_login(self):
         # set up the session
