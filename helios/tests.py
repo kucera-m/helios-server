@@ -33,8 +33,8 @@ class ElectionModelTests(TestCase):
     def create_election(self):
         return models.Election.get_or_create(
             short_name='demo',
-            name='Demo Election',
-            description='Demo Election Description',
+            name=u'Demo Election',
+            description=u'Demo Election Description',
             admin=self.user)
 
     def setup_questions(self):
