@@ -410,10 +410,10 @@ class ElectionBlackboxTests(WebTest):
 
         
         if hasattr(response, "testbody"):
-            assert text in response.testbody.decode('utf-8'), "missing text %s" % text
+            assert text in response.testbody, "missing text %s" % text
         else:
             if hasattr(response, "body"):
-                assert text in response.body.decode('utf-8'), "missing text %s" % text        
+                assert text in response.body, "missing text %s" % text        
             else:
                 assert text in response.content.decode('utf-8'), "missing text %s" % text
 
