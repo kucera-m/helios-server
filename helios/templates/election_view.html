@@ -55,7 +55,7 @@ toto {{election.election_type}} <u>není</u> zobrazeno na titulní stránce.
 &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="{% url "helios.views.voters_list_pretty" election.uuid %}">voliči a hlasovací lístky</a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="{% url "helios.views.list_trustees_view" election.uuid %}">volební komise ({{trustees|length}})</a>
+<a href="{% url "helios.views.list_trustees_view" election.uuid %}">trustees ({{trustees|length}})</a>
 </p>
 
 {% if admin_p %}
@@ -106,7 +106,7 @@ Načtěte tuto stránku znovu po uplynutí několika minut.
 {% else %}
 <a href="{% url "helios.views.one_election_compute_tally" election.uuid %}">vytvořit šifrováný celkový výsledek hlasování</a><br />
 Ze zašifrovaných hlasů bude vytvořen celkový výsledek, rovněž zašifrovaný. Poté budou<br />
-členové volební komise požádáni, aby provedli jeho dílčí dešifrování.
+trustees komise požádáni, aby provedli jeho dílčí dešifrování.
 {% endif %}
 {% else %}
 
@@ -121,17 +121,17 @@ Jakmile ho zveřejníte, bude si ho moci prohlédnout kdokoli.
 {% if election.num_trustees == 1 %}
 určit výsledek
 {% else %}
-spojit dílčí výsledky dešifrované volební komisí a určit výsledek
+spojit dílčí výsledky dešifrované trustees a vypočítat výsledek
 {% endif %}
 </a><br />
 {% if election.num_trustees == 1 %}
 Určený výsledek budete vidět pouze vy jakožto zakladatel hlasování.
 {% else %}
-Dílčí výsledky dešifrované volební komisí budou spojeny a bude určen celkový výsledek.<br />
+Dílčí výsledky dešifrované trustees budou spojeny a bude určen celkový výsledek.<br />
 Poté uvidíte výsledek pouze vy jakožto zakladatel hlasování.
 {% endif %}
 {% else %}
-<a href="{% url "helios.views.list_trustees_view" election.uuid %}">volební komise (pro dešifrování)</a>
+<a href="{% url "helios.views.list_trustees_view" election.uuid %}">trustees (pro dešifrování)</a>
 {% endif %}
 
 {% endif %}
